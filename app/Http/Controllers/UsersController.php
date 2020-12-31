@@ -44,7 +44,15 @@ class UsersController extends Controller
             'password' => 'required',
             'id_status' 
         ]);
-        Users::create($request->all());
+        $users = new users([
+            'nama_pengguna' => $request->get('nama_pengguna'),
+            'tanggallahir_pengguna' => $request->get('tanggallahir_pengguna'),
+            'email_pengguna' => $request->get('email_pengguna'),
+            'alamat_pengguna' => $request->get('alamat_pengguna'),
+            'password' => $request->get('password'),
+            'id_status' => $request->get('id_status')
+        ]);
+        $users->save();
         return redirect()->route('users.index')->with('success','Data berhasil di input');
     }
 
@@ -56,7 +64,7 @@ class UsersController extends Controller
      */
     public function show(Users $users)
     {
-        return view('users.show',compact('users'));
+        //return view('users.show',compact('users'));
     }
 
     /**
@@ -65,8 +73,9 @@ class UsersController extends Controller
      * @param  \App\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users $users)
+    public function edit($id)
     {
+        $users = users::find($id);
         return view('users.edit',compact('users'));
     }
 
@@ -77,7 +86,7 @@ class UsersController extends Controller
      * @param  \App\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nama_pengguna' => 'required',
@@ -88,7 +97,15 @@ class UsersController extends Controller
             'id_status' => 'required',
             
         ]);
-        $users->update($request->all());
+        $users = users::find($id);
+        $users->nama_pengguna =  $request->get('nama_pengguna');
+        $users->tanggallahir_pengguna =  $request->get('tanggallahir_pengguna');
+        $users->email_pengguna =  $request->get('email_pengguna');
+        $users->alamat_pengguna =  $request->get('alamat_pengguna');
+        $users->password =  $request->get('password');
+        $users->id_status =  $request->get('id_status');
+        $users->save();
+
         return redirect()->route('users.index')->with('success','data berhasil di update');
     }
 
@@ -98,8 +115,9 @@ class UsersController extends Controller
      * @param  \App\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $users)
+    public function destroy($id)
     {
+        $users = users::find($id);
         $users->delete();
         return redirect()->route('users.index')->with('success','data berhasil dihapus');
     }

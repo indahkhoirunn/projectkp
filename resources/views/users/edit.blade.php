@@ -137,37 +137,37 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Nama Pengguna</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="nama_pengguna" {{ $users->nama_pengguna }}>
+                      <input type="text" class="form-control" name="nama_pengguna" value={{ $users->nama_pengguna }}>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Tanggal Lahir</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="tanggallahir_pengguna" placeholder="yyyy-mm-dd">
+                      <input type="text" class="form-control" name="tanggallahir_pengguna" value={{ $users->tanggallahir_pengguna }} placeholder="yyyy-mm-dd">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Email Pengguna</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="email_pengguna" placeholder="saya@email.com" disabled>
+                      <input type="text" class="form-control" name="email_pengguna" value={{ $users->email_pengguna }} placeholder="saya@email.com">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Alamat Pengguna</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="alamat_pengguna" placeholder="Alamat Lengkap">
+                      <input type="text" class="form-control" name="alamat_pengguna" value={{ $users->alamat_pengguna }} placeholder="Alamat Lengkap">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Password</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="password" placeholder="Password maks 8 karakter">
+                      <input type="text" class="form-control" name="password" value={{ $users->password }} placeholder="Password maks 8 karakter">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Id status</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="id_status" placeholder="Id status">
+                      <input type="text" class="form-control" name="id_status" value={{ $users->id_status }} placeholder="Id status">
                     </div>
                   </div>
                   <div class="form-group">
@@ -179,7 +179,7 @@
                                           </select>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                   @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Maaf</strong> Data yang anda inputkan bermasalah.<br><br>

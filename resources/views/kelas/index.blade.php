@@ -95,13 +95,14 @@
                       </a>
           </li>
           <li class="sub-menu">
-            <li class="active">
+            <li class="deactive">
             <a href="users" class="" >
                           <i class="icon_table"></i>
                           <span>Pengguna</span>
                       </a>
           </li>
           <li class="sub-menu">
+            <li class="active">
             <a href="kelas" class="">
                           <i class="icon_table"></i>
                           <span>Kelas</span>
@@ -134,33 +135,27 @@
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading" class="col-lg-8">
-                Tambahkan pengguna <a class="btn btn-primary" href="{{ route('users.create') }}">input</a>
+                Tambahkan pengguna <a class="btn btn-primary" href="{{ route('kelas.create') }}">input</a>
               </header>
 
               <table class="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
-                    <th><i class="icon_profile"></i>Nama Lengkap</th>
-                    <th><i class="icon_calendar"></i>Tanggal lahir</th>
-                    <th><i class="icon_mail_alt"></i>Email</th>
-                    <th><i class="icon_pin_alt"></i>Alamat</th>
-                    <th><i class="icon_archive_alt"></i>Status</th>
+                    <th><i class="icon_tools"></i>ID Kelas</th>
+                    <th><i class="icon_book_alt"></i>Nama Kelas</th>
                     <th><i class="icon_cogs"></i> Action</th>
                   </tr>
-                  @foreach ($users as $p)
+                  @foreach ($kelas as $k)
                   <tr>
-                    <td>{{ $p->nama_pengguna }}</td>
-                    <td>{{ $p->tanggallahir_pengguna }}</td>
-                    <td>{{ $p->email_pengguna }}</td>
-                    <td>{{ $p->alamat_pengguna }}</td>
-                    <td>{{ $p->id_status }}</td>
+                    <td>{{ $k->id }}</td>
+                    <td>{{ $k->nama_kelas }}</td>
                     <td>
                       <div class="btn-group">
                         
-                        <a class="btn btn-success" href="{{ route('users.edit',$p->id) }}">edit</a>
+                        <a class="btn btn-success" href="{{ route('kelas.edit',$k->id) }}">edit</a>
                         @csrf
                     @method('DELETE')
-                        <a type="submit" class="btn btn-danger" href="{{ route('users.create')}}" >delete</a>
+                        <a type="submit" class="btn btn-danger" href="{{ route('kelas.create')}}" >delete</a>
                       </div>
                     </td>
                   </tr>

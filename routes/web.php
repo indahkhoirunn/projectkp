@@ -33,5 +33,5 @@ Route::get('/admin','adminController@index');
 
 Route::resource('users','UsersController');
 
-Route::get('/kelas','adminController@kelas');
+Route::resource('kelas','KelasController');
 
