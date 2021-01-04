@@ -3974,6 +3974,11 @@ div[data-role="editor-toolbar"] {
 
 }
 
+.badge.bg-danger {
+
+    background: rgb(255, 29, 48);
+
+}
 
 
 

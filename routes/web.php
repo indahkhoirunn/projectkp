@@ -23,9 +23,8 @@ Route::get('/presensi', function () {
     return view('presensi');
 });
 
-Route::get('/login','loginController@index');
 
-Route::get('/guru','guruController@index');
+Route::get('/login','loginController@index');
 
 Route::get('/signup','signupController@index');
 
@@ -34,4 +33,13 @@ Route::get('/admin','adminController@index');
 Route::resource('users','UsersController');
 
 Route::resource('kelas','KelasController');
+
+Route::get('/materi/index','MaterisController@index');
+Route::get('/materi','MaterisController@index');
+Route::get('/materi/create','MaterisController@create');
+Route::get('/materi/{materi}','MaterisController@show');
+Route::post('/materi','MaterisController@store');
+Route::delete('/materi/{materi}','MaterisController@destroy');
+Route::get('/materi/{materi}/edit','MaterisController@edit');
+Route::patch('/materi/{materi}','MaterisController@update');
 
