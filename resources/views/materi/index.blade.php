@@ -5,7 +5,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a href="index" class="">
+            <a href="materi" class="">
                           <i class="icon_book_alt"></i>
                           <span>Materi</span>
                       </a>

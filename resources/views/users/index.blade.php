@@ -77,12 +77,6 @@
     </header>
     <!--header end-->
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
     <!--sidebar start-->
     <aside>
       <div id="sidebar" class="nav-collapse ">
@@ -127,18 +121,28 @@
             </ol>
           </div>
         </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+            <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="icon_plus"></i> Tambah Pengguna</a>
+          </div>
+        </div>
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
 
-
-        <!--tabel-->
-                <div class="row">
-          <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12 md-6 xs-3">
+            <!--Project Activity start-->
             <section class="panel">
-              <header class="panel-heading" class="col-lg-8">
-                Tambahkan pengguna <a class="btn btn-primary" href="{{ route('users.create') }}">input</a>
-              </header>
+              <div class="panel-body progress-panel">
+              <div class="container">
+                <div class="row">
 
               <table class="table table-striped table-advance table-hover">
                 <tbody>
+                  <thead>
                   <tr>
                     <th><i class="icon_profile"></i>Nama Lengkap</th>
                     <th><i class="icon_calendar"></i>Tanggal lahir</th>
@@ -147,6 +151,7 @@
                     <th><i class="icon_archive_alt"></i>Status</th>
                     <th><i class="icon_cogs"></i> Action</th>
                   </tr>
+                </thead>
                   @foreach ($users as $p)
                   <tr>
                     <td>{{ $p->nama_pengguna }}</td>
@@ -158,9 +163,9 @@
                       <div class="btn-group">
                         
                         <a class="btn btn-success" href="{{ route('users.edit',$p->id) }}">edit</a>
-                        @csrf
-                    @method('DELETE')
-                        <a type="submit" class="btn btn-danger" href="{{ route('users.create')}}" >delete</a>
+                        @method('delete')
+                    @csrf
+                        <button type="submit" class="btn btn-danger" >delete</button>
                       </div>
                     </td>
                   </tr>

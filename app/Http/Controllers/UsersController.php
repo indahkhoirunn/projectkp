@@ -53,7 +53,7 @@ class UsersController extends Controller
             'id_status' => $request->get('id_status')
         ]);
         $users->save();
-        return redirect()->route('users.index')->with('success','Data berhasil di input');
+        return redirect()->route('users.index')->with('status','Data berhasil di input');
     }
 
     /**
@@ -106,7 +106,7 @@ class UsersController extends Controller
         $users->id_status =  $request->get('id_status');
         $users->save();
 
-        return redirect()->route('users.index')->with('success','data berhasil di update');
+        return redirect()->route('users.index')->with('status','data berhasil di update');
     }
 
     /**
@@ -117,8 +117,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $users = users::find($id);
-        $users->delete();
-        return redirect()->route('users.index')->with('success','data berhasil dihapus');
+        Users::destroy($users->id);
+        return redirect()->route('users.index')->with('status','data berhasil dihapus');
     }
 }
