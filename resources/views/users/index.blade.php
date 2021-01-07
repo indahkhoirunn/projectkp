@@ -163,9 +163,12 @@
                       <div class="btn-group">
                         
                         <a class="btn btn-success" href="{{ route('users.edit',$p->id) }}">edit</a>
+                        <form action="{{$p->id}}" method="post" class="d-inline">
                         @method('delete')
-                    @csrf
-                        <button type="submit" class="btn btn-danger" >delete</button>
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        
                       </div>
                     </td>
                   </tr>

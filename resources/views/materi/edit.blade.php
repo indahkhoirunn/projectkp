@@ -5,13 +5,13 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a href="index" class="">
+            <a href="materi/index" class="">
                           <i class="icon_book_alt"></i>
                           <span>Materi</span>
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
+            <a href="assignment/index" class="">
                           <i class="icon_clipboard"></i>
                           <span>Tugas</span>
                       </a>

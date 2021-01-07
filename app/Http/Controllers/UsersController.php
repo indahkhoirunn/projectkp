@@ -115,9 +115,9 @@ class UsersController extends Controller
      * @param  \App\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        Users::destroy($users->id);
+        User::destroy($user->id);
         return redirect()->route('users.index')->with('status','data berhasil dihapus');
     }
 }

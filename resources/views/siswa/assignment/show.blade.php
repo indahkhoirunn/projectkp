@@ -4,20 +4,20 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
-          <li class="active">
-            <a href="materi/index" class="">
+          <li class="sub-menu">
+            <a href="siswa/materi/index" class="">
                           <i class="icon_book_alt"></i>
                           <span>Materi</span>
                       </a>
           </li>
-          <li class="sub-menu">
-            <a href="assignment/index" class="">
+          <li class="active">
+            <a href="siswa/assignment/index" class="">
                           <i class="icon_clipboard"></i>
                           <span>Tugas</span>
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
+            <a href="siswa/presence/index" class="">
                           <i class="icon_check"></i>
                           <span>Presensi</span>
                       </a>
@@ -36,10 +36,10 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-book"></i> Form Tambah Materi</h3>
+            <h3 class="page-header"><i class="fa fa-book"></i>Detail Tugas</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-              <li><i class="fa fa-book"></i>Materi</li>
+              <li><i class="fa fa-book"></i>Tugas</li>
             </ol>
           </div>
         </div>
@@ -51,21 +51,18 @@
             <section class="panel">
               <div class="panel-body progress-panel">
                 <div class="container">
-                <form method="post" action="/materi">
-                @csrf
-                <div class="mb-3">
-                  <label for="judul_materi" class="form-label">Nama Materi</label>
-                  <input type="text" class="form-control" id="judul_materi" placeholder="Masukkan Nama Materi" name="judul_materi">
-                </div>
-                <div class="mb-3">
-                  <label for="file_upload" class="form-label">Konten Materi</label>
-                  <input type="text" class="form-control" id="file_upload" placeholder="Masukkan Isi Materi" name="file_upload">
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">{{$assignment->nama_tugas}}</h4>
+                    <p class="card-text">{{$assignment->lampiran}}</p>
+                
+                  
+                    
+                  </div>
+                  </div>
               </div>
+              </div>
+            </div>
             </section>
             <!--Project Activity end-->
           </div>

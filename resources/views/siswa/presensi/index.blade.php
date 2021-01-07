@@ -17,7 +17,7 @@
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
+            <a href="presence/presence" class="">
                           <i class="icon_check"></i>
                           <span>Presensi</span>
                       </a>
@@ -36,10 +36,9 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-book"></i> Form Tambah Materi</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-              <li><i class="fa fa-book"></i>Materi</li>
+              <li><i class="fa fa-book"></i>Presensi</li>
             </ol>
           </div>
         </div>
@@ -51,15 +50,15 @@
             <section class="panel">
               <div class="panel-body progress-panel">
                 <div class="container">
-                <form method="post" action="/materi">
+                <form method="post" action="/presence/store">
                 @csrf
                 <div class="mb-3">
-                  <label for="judul_materi" class="form-label">Nama Materi</label>
-                  <input type="text" class="form-control" id="judul_materi" placeholder="Masukkan Nama Materi" name="judul_materi">
+                  <label for="nama_siswa" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="nama_siswa" placeholder="Masukkan Nama Siswa" name="nama_siswa">
                 </div>
                 <div class="mb-3">
-                  <label for="file_upload" class="form-label">Konten Materi</label>
-                  <input type="text" class="form-control" id="file_upload" placeholder="Masukkan Isi Materi" name="file_upload">
+                  <label for="status" class="form-label">Status</label>
+                  <input type="text" class="form-control" id="status" placeholder="Masukkan Status Kesehatan: Sehat/Tidak Sehat" name="status">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
