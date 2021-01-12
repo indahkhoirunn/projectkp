@@ -67,7 +67,7 @@
 
 
       <div class="top-nav notification-row">
-        Welcome (nama users)
+        You are not logged in. <a href="login" class="">(Log in)</a>
 
         <!-- notificatoin dropdown end-->
       </div>

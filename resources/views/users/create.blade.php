@@ -56,17 +56,7 @@
       <a href="/" class="logo">PROJECT<span class="lite">KP</span></a>
       <!--logo end-->
 
-      <div class="nav search-row" id="top_menu">
-        <!--  search form start -->
-        <ul class="nav top-menu">
-          <li>
-            <form class="navbar-form">
-              <input class="form-control" placeholder="Search" type="text">
-            </form>
-          </li>
-        </ul>
-        <!--  search form end -->
-      </div>
+
 
 
       <div class="top-nav notification-row">
@@ -95,12 +85,7 @@
                           <span>Pengguna</span>
                       </a>
           </li>
-          <li class="sub-menu">
-            <a href="{{ URL::asset('kelas')}}" class="">
-                          <i class="icon_table"></i>
-                          <span>Kelas</span>
-                      </a>
-          </li>
+
 
         </ul>
         <!-- sidebar menu end-->

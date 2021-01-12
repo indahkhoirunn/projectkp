@@ -4,24 +4,31 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
-          <li class="active">
-            <a href="materi" class="">
+           <li class="sub-menu">
+            <a class="" href="{{ url('/guru')}}">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+          </li>
+          
+            <li class="active">
+            <a href="{{ url('/materi')}}" class="">
                           <i class="icon_book_alt"></i>
                           <span>Materi</span>
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="assignment" class="">
+            <a href="{{ url('/assignment')}}" class="">
                           <i class="icon_clipboard"></i>
                           <span>Tugas</span>
                       </a>
           </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
+         
+            <li class="sub-menu">
+            <a href="{{ url('/presence')}}" class="">
                           <i class="icon_check"></i>
                           <span>Presensi</span>
                       </a>
-          </li>
 
         </ul>
         <!-- sidebar menu end-->
@@ -37,7 +44,7 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-book"></i> Materi</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="{{ url('/guru')}}">Dashboard</a></li>
               <li><i class="fa fa-book"></i>Materi</li>
             </ol>
           </div>

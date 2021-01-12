@@ -92,12 +92,6 @@
                           <span>Pengguna</span>
                       </a>
           </li>
-          <li class="sub-menu">
-            <a href="kelas" class="">
-                          <i class="icon_table"></i>
-                          <span>Kelas</span>
-                      </a>
-          </li>
 
         </ul>
         <!-- sidebar menu end-->

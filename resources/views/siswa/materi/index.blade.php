@@ -4,20 +4,28 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
+          <li class="sub-menu">
+            <a class="" href="{{ url('/siswa')}}">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+                    </li>
           <li class="active">
-            <a href="siswa/materi" class="">
+          
+          <a href="{{ url('/siswa/materi')}}" class="">
                           <i class="icon_book_alt"></i>
                           <span>Materi</span>
                       </a>
+                    </li>
           </li>
           <li class="sub-menu">
-            <a href="siswa/assignment" class="">
+            <a href="{{ url('/siswa/assignment')}}" class="">
                           <i class="icon_clipboard"></i>
                           <span>Tugas</span>
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="siswa/presence" class="">
+            <a href="{{ url('/siswa/presence') }}" class="">
                           <i class="icon_check"></i>
                           <span>Presensi</span>
                       </a>
@@ -43,11 +51,7 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
-            <a href="/materi/create" class="btn btn-primary"><i class="icon_plus"></i> Tambah Materi</a>
-          </div>
-        </div>
+
         <br>
         @if (session('status'))
             <div class="alert alert-success">
@@ -68,7 +72,6 @@
                         <th>No</th>
                         <th>Judul Materi</th>
                         <th>File Pendukung</th>
-                        <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,9 +80,6 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$materi->judul_materi}}</td>
                         <td>{{$materi->file_upload}}</td>
-                        <td>
-                            <a class="badge bg-info" href="materi/{{$materi->id}}">detail</a>
-                        </td>
                       </tr>
                     @endforeach
                     </tbody>

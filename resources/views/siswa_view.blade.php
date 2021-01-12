@@ -60,9 +60,7 @@
         <!--  search form start -->
         <ul class="nav top-menu">
           <li>
-            <form class="navbar-form">
-              <input class="form-control" placeholder="Search" type="text">
-            </form>
+
           </li>
         </ul>
         <!--  search form end -->
@@ -70,42 +68,40 @@
 
 
       <div class="top-nav notification-row">
-        You are not logged in. (<a href="login">Login</a>)
+        Welcome (nama users)
 
         <!-- notificatoin dropdown end-->
       </div>
     </header>
     <!--header end-->
 
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
     <!--sidebar start-->
     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
-          <li class="deactive">
-            <a class="" href="admin">
+          <li class="active">
+            <a class="" href="{{ url('/siswa')}}">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
+          <li class="sub-menu">
+          <a href="{{ url('/siswa/materi')}}" class="">
+                          <i class="icon_book_alt"></i>
+                          <span>Materi</span>
+                      </a>
+                    </li>
           </li>
           <li class="sub-menu">
-            <li class="deactive">
-            <a href="users" class="" >
-                          <i class="icon_table"></i>
-                          <span>Pengguna</span>
+            <a href="{{ url('/siswa/assignment')}}" class="">
+                          <i class="icon_clipboard"></i>
+                          <span>Tugas</span>
                       </a>
           </li>
           <li class="sub-menu">
-            <li class="active">
-            <a href="kelas" class="">
-                          <i class="icon_table"></i>
-                          <span>Kelas</span>
+            <a href="{{ url('/siswa/presence') }}" class="">
+                          <i class="icon_check"></i>
+                          <span>Presensi</span>
                       </a>
           </li>
 
@@ -119,58 +115,62 @@
     <section id="main-content">
       <section class="wrapper">
         <!--overview start-->
-        <div class="row">
-          <div class="col-lg-12">
-            <h3 class="page-header"><i class="icon_profile"></i> Pengguna</h3>
-            <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="admin">Dashboard</a></li>
-              <li><i class="fa fa-laptop"></i>Pengguna</li>
-            </ol>
-          </div>
-        </div>
-
-
-        <!--tabel-->
                 <div class="row">
-          <div class="col-lg-12">
-            <section class="panel">
-              <header class="panel-heading" class="col-lg-8">
-                Tambahkan pengguna <a class="btn btn-primary" href="{{ route('kelas.create') }}">input</a>
-              </header>
 
-              <table class="table table-striped table-advance table-hover">
-                <tbody>
-                  <tr>
-                    <th><i class="icon_tools"></i>ID Kelas</th>
-                    <th><i class="icon_book_alt"></i>Nama Kelas</th>
-                    <th><i class="icon_cogs"></i> Action</th>
-                  </tr>
-                  @foreach ($kelas as $k)
-                  <tr>
-                    <td>{{ $k->id }}</td>
-                    <td>{{ $k->nama_kelas }}</td>
-                    <td>
-                      <div class="btn-group">
-                        
-                        <a class="btn btn-success" href="{{ route('kelas.edit',$k->id) }}">edit</a>
-                        @csrf
-                    @method('DELETE')
-                        <a type="submit" class="btn btn-danger" href="{{ route('kelas.create')}}" >delete</a>
-                      </div>
-                    </td>
-                  </tr>
-                  
-                </tbody>
-                @endforeach
-              </table>
-            </section>
+          <div class="col-lg-9 col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2><strong>PROFIL SEKOLAH</strong></h2>
+              </div>
+              <div class="panel-body">
+                <img src="img/school.jpg">
+                <p>
+                <p>
+                    ini adalah profil sekolah sekolah
+                <br>
+                berisi nama sekolah, alamat sekolah, visi misi
+              </div>
+
+            </div>
+
           </div>
-        </div>
-        <!--end tabel-->
+          <!--/col-->
+          <div class="col-md-3">
 
+            <div class="social-box facebook">
+              <i class="fa fa-facebook"></i>
+              <h2><strong>find us</strong></h2>
+            </div>
+            <!--/social-box-->
+          </div>
+          <div class="col-md-3">
+
+            <div class="social-box google-plus">
+              <i class="fa fa-google-plus"></i>
+              <h2><strong>find us</strong></h2>
+            </div>
+            <!--/social-box-->
+
+          </div>
+          <!--/col-->
+          <div class="col-md-3">
+
+            <div class="social-box twitter">
+              <i class="fa fa-twitter"></i>
+              <h2><strong>find us</strong></h2>
+            </div>
+            <!--/social-box-->
+
+          </div>
+          <!--/col-->
+        </div>
+        <!-- project team & activity end -->
+    <!--main content end-->
+  </section>
+  <!-- container section start -->
 
   <!-- javascripts -->
- <script src="js/jquery.js"></script>
+  <script src="js/jquery.js"></script>
   <script src="js/jquery-ui-1.10.4.min.js"></script>
   <script src="js/jquery-1.8.3.min.js"></script>
   <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
@@ -185,7 +185,7 @@
   <script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
   <script src="js/owl.carousel.js"></script>
   <!-- jQuery full calendar -->
-  <script src="js/fullcalendar.min.js"></script>
+  <<script src="js/fullcalendar.min.js"></script>
     <!-- Full Google Calendar - Calendar -->
     <script src="assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
     <!--script for this page only-->
@@ -259,4 +259,3 @@
 </body>
 
 </html>
-

@@ -59,8 +59,6 @@
                 <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
             </label>
         <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-        <br>
-        <p><a href="signup">Belum memiliki akun ?</a></p>
       </div>
     </form>
     <div class="text-right">
