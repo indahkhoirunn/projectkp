@@ -44,7 +44,7 @@ class StudentPresencesController extends Controller
             'created_at'=>now()->toDateString()
         ]);
         // alihkan halaman ke halaman pegawai
-        return redirect('siswa')->with('status', 'Presensi Berhasil Ditambahkan!');
+        return redirect('/home')->with('status', 'Presensi Berhasil Ditambahkan!');
     }
 
     /**

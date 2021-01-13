@@ -1,40 +1,4 @@
-@extends('materi/layout/main')
-@section('sidebar')
-<aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu">
-          <li class="sub-menu">
-            <a class="" href="{{ url('/siswa')}}">
-                          <i class="icon_house_alt"></i>
-                          <span>Dashboard</span>
-                      </a>
-                    </li>
-          <li class="sub-menu">
-          <a href="{{ url('/siswa/materi')}}" class="">
-                          <i class="icon_book_alt"></i>
-                          <span>Materi</span>
-                      </a>
-                    </li>
-          </li>
-          <li class="sub-menu">
-            <a href="{{ url('/siswa/assignment')}}" class="">
-                          <i class="icon_clipboard"></i>
-                          <span>Tugas</span>
-                      </a>
-          </li>
-          <li class="active">
-            <a href="{{ url('/siswa/presence') }}" class="">
-                          <i class="icon_check"></i>
-                          <span>Presensi</span>
-                      </a>
-          </li>
-
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
-@endsection
+@extends('main')
 @section('content')
 
 <!--main content start-->
@@ -44,7 +8,7 @@
         <div class="row">
           <div class="col-lg-12">
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="/home">Dashboard</a></li>
               <li><i class="fa fa-book"></i>Presensi</li>
             </ol>
           </div>

@@ -1,33 +1,4 @@
-@extends('materi/layout/main')
-@section('sidebar')
-<aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu">
-          <li class="active">
-            <a href="siswa/materi/index" class="">
-                          <i class="icon_book_alt"></i>
-                          <span>Materi</span>
-                      </a>
-          </li>
-          <li class="sub-menu">
-            <a href="siswa/assignment/index" class="">
-                          <i class="icon_clipboard"></i>
-                          <span>Tugas</span>
-                      </a>
-          </li>
-          <li class="sub-menu">
-            <a href="siswa/presence" class="">
-                          <i class="icon_check"></i>
-                          <span>Presensi</span>
-                      </a>
-          </li>
-
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
-@endsection
+@extends('/main')
 @section('content')
 
 <!--main content start-->
@@ -38,7 +9,7 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-book"></i>Detail Materi</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="/home">Dashboard</a></li>
               <li><i class="fa fa-book"></i>Materi</li>
             </ol>
           </div>

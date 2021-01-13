@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,49 +17,58 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('welcome');
+
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function()
+{
+	Route::get('/pengguna', 'PenggunaController@index');
+	Route::get('/pengguna/insert', 'PenggunaController@insert');
+	Route::post('/pengguna/create', 'PenggunaController@create');
+	Route::get('/pengguna/{id}/edit', 'PenggunaController@edit');
+	Route::post('/pengguna/{id}/update', 'PenggunaController@update');
+	Route::get('/pengguna/{id}/delete', 'PenggunaController@delete');
+
+
 });
 
+//Route::get('siswa','SiswaController@index
+Route::group(['middleware' => ['auth', 'checkRole:siswa']], function()
+{
+	Route::get('/siswa/materi','MateriSiswaController@index');
+	Route::get('/siswa/assignment','assignmentsSiswaController@index');
+	Route::get('/siswa/presence','StudentPresencesController@index');
+	Route::get('/siswa/presence/index','StudentPresencesController@index');
+	Route::post('/presence/store','StudentPresencesController@store');
 
+	
+});
 
-Route::get('/login','loginController@index');
+Route::group(['middleware' => ['auth', 'checkRole:guru']], function()
+{
+	Route::get('assignment/index','AssignmentsController@index');
+	Route::get('assignment','AssignmentsController@index');
+	Route::get('assignment/create','AssignmentsController@create');
+	Route::get('assignment/{assignment}','AssignmentsController@show');
+	Route::post('assignment','AssignmentsController@store');
+	Route::delete('assignment/{assignment}','AssignmentsController@destroy');
+	Route::get('assignment/{assignment}/edit','AssignmentsController@edit');
+	Route::patch('assignment/{assignment}','AssignmentsController@update');
+	
+	Route::get('presence','PresencesController@index');
 
-Route::get('/signup','signupController@index');
+	Route::get('materi/index','MaterisController@index');
+	Route::get('materi','MaterisController@index');
+	Route::get('materi/create','MaterisController@create');
+	Route::get('materi/{materi}','MaterisController@show');
+	Route::post('materi','MaterisController@store');
+	Route::delete('materi/{materi}','MaterisController@destroy');
+	Route::get('materi/{materi}/edit','MaterisController@edit');
+	Route::patch('materi/{materi}','MaterisController@update');
+});
 
-Route::get('/admin','adminController@index');
+Auth::routes();
 
-Route::get('guru','guruController@index');
+Route::group(['middleware' => ['auth', 'checkRole:admin,siswa,guru']], function()
+{
 
-Route::resource('users','UsersController');
-
-Route::resource('kelas','KelasController');
-
-Route::get('materi/index','MaterisController@index');
-Route::get('materi','MaterisController@index');
-Route::get('materi/create','MaterisController@create');
-Route::get('materi/{materi}','MaterisController@show');
-Route::post('materi','MaterisController@store');
-Route::delete('materi/{materi}','MaterisController@destroy');
-Route::get('materi/{materi}/edit','MaterisController@edit');
-Route::patch('materi/{materi}','MaterisController@update');
-
-Route::get('assignment/index','AssignmentsController@index');
-Route::get('assignment','AssignmentsController@index');
-Route::get('assignment/create','AssignmentsController@create');
-Route::get('assignment/{assignment}','AssignmentsController@show');
-Route::post('assignment','AssignmentsController@store');
-Route::delete('assignment/{assignment}','AssignmentsController@destroy');
-Route::get('assignment/{assignment}/edit','AssignmentsController@edit');
-Route::patch('assignment/{assignment}','AssignmentsController@update');
-
-Route::get('presence','PresencesController@index');
-
-
-Route::get('siswa','SiswaController@index');
-Route::get('siswa/materi','MateriSiswaController@index');
-Route::get('siswa/assignment','assignmentsSiswaController@index');
-Route::get('siswa/presence','StudentPresencesController@index');
-Route::get('siswa/presence/index','StudentPresencesController@index');
-Route::post('/presence/store','StudentPresencesController@store');
-
+	Route::get('/home', 'HomeController@index')->name('home');
+});

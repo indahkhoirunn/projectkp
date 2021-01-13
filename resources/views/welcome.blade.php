@@ -67,7 +67,7 @@
 
 
       <div class="top-nav notification-row">
-        You are not logged in. <a href="login" class="">(Log in)</a>
+        You are not logged in. <a href="{{ route('login') }}" class="">(Log in)</a>
 
         <!-- notificatoin dropdown end-->
       </div>
@@ -250,3 +250,4 @@
 </body>
 
 </html>
+

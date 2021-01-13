@@ -38,7 +38,7 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-book"></i>Detail Tugas</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+              <li><i class="fa fa-home"></i><a href="/home">Dashboard</a></li>
               <li><i class="fa fa-book"></i>Tugas</li>
             </ol>
           </div>
