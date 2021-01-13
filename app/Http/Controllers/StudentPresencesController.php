@@ -36,13 +36,15 @@ class StudentPresencesController extends Controller
      */
     public function store(Request $request)
     {
+        //$current_date = date('Y-m-d H:i:s');
+
         DB::table('presences')->insert([
             'nama_siswa' => $request->nama_siswa,
             'status' => $request->status,
-            'created_at'=>$request->created_at
+            'created_at'=>now()->toDateString()
         ]);
         // alihkan halaman ke halaman pegawai
-        return redirect('materi/index')->with('status', 'Presensi Berhasil Ditambahkan!');
+        return redirect('siswa')->with('status', 'Presensi Berhasil Ditambahkan!');
     }
 
     /**
